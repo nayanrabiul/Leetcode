@@ -20,6 +20,13 @@ let arr3 = new Array(10).fill(0);
 
 let length = arr.length;
 
+//set
+let set = new Set(arr);
+set.add(6);
+set.delete(6);
+set.has(6); //return boolean if set has 6
+set.size; //return size of set
+
 //loop
 
 for (let i = 0; i < arr.length; i++) {
