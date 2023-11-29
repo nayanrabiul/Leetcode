@@ -13,6 +13,10 @@ let v5 = () => {
     //function body
 };
 
+//truthy & falsy value
+let link =
+    "https://itzone.com.vn/en/article/what-are-truthy-and-falsy-in-javascript/";
+
 //array
 let arr = [1, 2, 3, 4, 5];
 let arr2 = new Array(1, 2, 3, 4, 5);
@@ -28,10 +32,20 @@ set.has(6); //return boolean if set has 6
 set.size; //return size of set
 
 //loop
-
 for (let i = 0; i < arr.length; i++) {
     console.log(arr[i]);
 }
 arr.forEach((element) => {
     console.log(element);
 });
+
+//sorting
+arr.sort((a, b) => {
+    return a - b;
+}); //ascending
+
+arr.sort((a, b) => {
+    return b - a;
+}); //descending
+
+//map
