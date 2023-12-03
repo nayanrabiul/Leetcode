@@ -4,11 +4,6 @@
  * @return {boolean}
  */
 var isAnagram = function (s, t) {
-    // let x1 = s.split("").sort().join("");
-    // let x2 = t.split("").sort().join("");
-    // if (x1 == x2) return true;
-    // else return false;
-
     if (s.length !== t.length) return false;
     const alphabet_s = new Array(224).fill(null);
     const alphabet_t = new Array(224).fill(null);
