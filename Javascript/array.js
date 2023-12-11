@@ -40,7 +40,7 @@ arr.splice(0, 2); // modifies original
 
 // Finding Elements
 let found = arr.find((value) => value >= 2); // return first element
-let has = arr2.c(5); // return boolean
+let has = arr2.contains(2); // return true or false
 
 // Sorting
 arr.sort((a, b) => a - b); // ascending

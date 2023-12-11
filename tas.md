@@ -1,3 +1,2 @@
-238
-36
-128
+1 : optimize
+3 : using set
