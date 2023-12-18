@@ -28,6 +28,7 @@ set.add(6);
 set.delete(6);
 set.has(6); //return boolean if set has 6
 set.size; //return size of set
+set.clear(); //clear set
 
 //map
 let map = new Map();
