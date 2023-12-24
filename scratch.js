@@ -6,10 +6,9 @@
 
 let len = (a) => Object.keys(a).length;
 var minWindow = function (s, t) {
-    if (s === "") return s;
-    //convert t string to object with key as char and value as count
-    let tObj = {};
     let sObj = {};
+    let tObj = {};
+
     for (let i = 0; i < t.length; i++) {
         sObj[t[i]] = 0;
         if (tObj[t[i]]) {
@@ -19,58 +18,50 @@ var minWindow = function (s, t) {
         }
     }
 
-    let has = 0;
-    let need = Object.keys(tObj).length;
-    let min = s.length;
-
     let tools = {
-        addToObjs: (s) => {
-            // , add check numbers if equal in t objs ? then update has
-            if (!!sObj[s]) {
-                sObj[s] += 1;
-            } else sObj[s] = 1;
-            //update has
-            if (sObj[s] === tObj[s]) has++;
+        match2Obj: (objS, objt) => {
+            for (let key in objS) {
+                if (objS[key] >= objt[key]) {
+                    continue;
+                } else return false;
+            }
+            return true;
         },
-        removeFromObjs: (s) => {
-            if (!!tObj[s]) {
-                sObj[s] -= 1;
-                if (sObj[s] < tObj[s]) {
-                    has--;
-                }
-            } else has--;
-            // , add check numbers if equal in t objs ? then update has
+
+        addTOSObj: (c) => {
+            if (sObj.hasOwnProperty(c)) {
+                sObj[c]++;
+            }
         },
-        canAddAble: (s) => {
-            //there can be 0
-            return !!tObj[s];
+        removedToObj: (c) => {
+            if (sObj[c] > 0) {
+                sObj[c]--;
+            }
         },
     };
 
     let start = 0;
-    let result = "";
+    let result = s;
+
     for (let end = 0; end < s.length; end++) {
-        //first check, if s[end] in tobjs by canAddable
-        if (tools.canAddAble(s[end])) {
-            //if addable,incrise count ot s in Sobj and update has inside there
-            tools.addToObjs(s[end]);
-            //check if has === need then check and update minimum
-            while (has === need) {
-                if (min >= end - start + 1) {
-                    min = end - start + 1;
-                    result = s.substring(start, end + 1);
-                }
-                if (tools.canAddAble(s[start])) {
-                    tools.removeFromObjs(s[start]);
-                    start++;
-                } else start++;
+        const element = s[end];
+        tools.addTOSObj(element);
+        if (tools.match2Obj(sObj, tObj)) {
+            while (tools.match2Obj(sObj, tObj)) {
+                let needtoremoved = s[start];
+                tools.removedToObj(needtoremoved);
+                start++;
+            }
+            let length = end - start + 1;
+            if (length < result.length) {
+                result = s.slice(start, end);
             }
         }
     }
     return result;
 };
 
-console.log(minWindow("ADOBECODEBANC", (t = "ABC")));
-console.log(minWindow("cabwefgewcwaefgcf", (t = "cae"))); //cwae
-console.log(minWindow("a", (t = "a")));
-console.log(minWindow("a", (t = "aa")));
+console.log(minWindow("ADOBECODEBANC", "ABC"));
+// console.log(minWindow("cabwefgewcwaefgcf", (t = "cae"))); //cwae
+// console.log(minWindow("a", (t = "a")));
+// console.log(minWindow("a", (t = "aa")));
