@@ -35,6 +35,7 @@ console.log(Object.entries(myObject)); //[["key2", "hi"], ["key3", {key4: 5}]]
 
 //check if property exists
 console.log(myObject.hasOwnProperty("key1")); //false
+if ("key1" in myObject) console.log(true); //true
 
 //json
 let myJson = JSON.stringify(myObject);
