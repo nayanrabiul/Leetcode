@@ -35,3 +35,14 @@ let map = new Map();
 map.set("5", "fasdfasd");
 map.get("5"); //return fasdfasd
 let hasInmap = map.has("5"); // true / false
+
+//taking input in js
+const readline = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+
+readline.question("Who are you?", (name) => {
+    console.log(`Hey there ${name}!`);
+    readline.close();
+});
