@@ -10,26 +10,19 @@
  * @return {ListNode}
  */
 var reverseList = function (head) {
-    let arra = [];
-    arra.push(head.val);
-    do {
+    if (head?.val === undefined) return head;
+
+    let result = null;
+    let temp = null;
+
+    while (head?.next) {
+        temp = head;
         head = head.next;
-        arra.push(head.val);
-    } while (!!head.next);
-
-    arra.sort((a, b) => b - a);
-    console.log(arra);
-
-    let node = null;
-    let temp = node;
-    for (let index = 0; index < arra.length; index++) {
-        const element = arra[index];
-
-        temp = {
-            val: element,
-            next: null,
-        };
+        temp.next = result;
+        result = temp;
     }
+    head.next = result;
+    return head;
 };
 
 let data = {
@@ -49,4 +42,4 @@ let data = {
     },
 };
 
-reverseList(data);
+console.log(reverseList(data));
