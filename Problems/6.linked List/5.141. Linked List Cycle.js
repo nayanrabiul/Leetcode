@@ -26,6 +26,16 @@ var hasCycle = function (head) {
 
 let data = {
     val: 3,
-    next: null,
+    next: {
+        val: 2,
+        next: {
+            val: 0,
+            next: {
+                val: -4,
+                next: null,
+            },
+        },
+    },
 };
+data.next.next.next.next = data.next;
 console.log(hasCycle(data));
