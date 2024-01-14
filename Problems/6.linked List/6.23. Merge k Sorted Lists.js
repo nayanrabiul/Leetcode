@@ -12,36 +12,25 @@
 let printhead = (head) => {
     let temp = head;
     while (temp) {
-        console.log(temp.val);
         temp = temp.next;
     }
 };
 
-let isFinished = (pointerArray) => {
-    for (let index = 0; index < pointerArray.length; index++) {
-        const node = pointerArray[index];
-        if (node) return false;
-    }
-    return true;
-};
-
 var findMinVal = (pointerArray) => {
-    let result = {
-        val: Number.POSITIVE_INFINITY,
-        next: null,
-    };
+    let minIndex = -1;
+    let minVal = Number.POSITIVE_INFINITY;
+
     for (let index = 0; index < pointerArray.length; index++) {
         const node = pointerArray[index];
-        if (node) {
-            let val = node.val;
-            if (result.val > val) {
-                result = node;
-            }
+        if (node && node.val < minVal) {
+            minVal = node.val;
+            minIndex = index;
         }
     }
-    let finalVal = result.val;
-    result = result.next;
-    return finalVal;
+
+    if (minIndex === -1) return false;
+    pointerArray[minIndex] = pointerArray[minIndex].next;
+    return minVal;
 };
 
 var mergeKLists = function (lists) {
@@ -56,8 +45,11 @@ var mergeKLists = function (lists) {
     }
 
     let temp = result;
-    while (!isFinished(pointerArray)) {
+    while (1) {
         let min = findMinVal(pointerArray);
+        if (min === false) {
+            break;
+        }
         let newNode = {
             val: min,
             next: null,
@@ -65,7 +57,7 @@ var mergeKLists = function (lists) {
         temp.next = newNode;
         temp = temp.next;
     }
-    printhead(result.next);
+    return result.next;
 };
 let data = [
     {
