@@ -27,7 +27,14 @@ var printBinaryTree = (root, space = 0, count = 10) => {
     printBinaryTree(root.left, space);
 };
 
-var maxDepth = function (root, depth = 0) {};
+var maxDepth = function (root, depth = 0) {
+    if (root === null) return depth;
+
+    let leftDepth = maxDepth(root.left, depth + 1);
+    let rightDepth = maxDepth(root.right, depth + 1);
+
+    return Math.max(leftDepth, rightDepth);
+};
 
 let data = {
     val: 3,
