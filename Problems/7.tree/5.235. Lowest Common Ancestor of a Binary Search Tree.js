@@ -15,9 +15,9 @@
 var lowestCommonAncestor = function (root, p, q) {
     while (root) {
         if (root.val > p.val && root.val > q.val) {
-            root = root.right;
-        } else if (root.val < p.val && root.val < q.val) {
             root = root.left;
+        } else if (root.val < p.val && root.val < q.val) {
+            root = root.right;
         } else {
             break;
         }
@@ -63,8 +63,8 @@ let data = {
     },
 };
 
-let p = 2;
-let q = 8;
+let p = { val: 4 };
+let q = { val: 5 };
 
 let result = lowestCommonAncestor(data, p, q);
 
