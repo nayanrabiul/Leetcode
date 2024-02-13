@@ -13,6 +13,7 @@
  * @return {string}
  */
 var serialize = function (root) {
+    
     let res = [];
     let queu = [root];
     while (queu.length > 0) {
