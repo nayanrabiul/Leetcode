@@ -34,12 +34,47 @@ var serialize = function (root) {
  * @param {string} data
  * @return {TreeNode}
  */
-var deserialize = function (data) {};
-
 /**
  * Your functions will be called as such:
  * deserialize(serialize(root));
  */
+
+var deserialize = function (string) {
+    let arr = string.split(",");
+    if (arr[0] == "null") return null;
+    let root = {
+        val: arr[0],
+        left: null,
+        right: null,
+    };
+    let queu = [root];
+
+    let index = 1;
+    while (queu.length > 0) {
+        let node = queu.shift();
+
+        if (arr[index !== null]) {
+            node.left = {
+                val: arr[index],
+                left: null,
+                right: null,
+            };
+            queu.push(node.left);
+        }
+        index++;
+        if (arr[index !== null]) {
+            node.right = {
+                val: arr[index],
+                left: null,
+                right: null,
+            };
+            queu.push(node.right);
+        }
+        index++;
+    }
+
+    return root;
+};
 
 let data = {
     val: 1,
