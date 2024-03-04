@@ -53,7 +53,7 @@ var deserialize = function (string) {
     while (queu.length > 0) {
         let node = queu.shift();
 
-        if (arr[index !== null]) {
+        if (arr[index] !== "null") {
             node.left = {
                 val: arr[index],
                 left: null,
@@ -62,7 +62,7 @@ var deserialize = function (string) {
             queu.push(node.left);
         }
         index++;
-        if (arr[index !== null]) {
+        if (arr[index] !== "null") {
             node.right = {
                 val: arr[index],
                 left: null,

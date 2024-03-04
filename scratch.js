@@ -1,18 +1,22 @@
-let functionb = (a) => {
-    a = "world";
-};
+// let functionb = (a) => {
+//     a = "world";
+// };
 
-let functiona = () => {
-    let array = "hello";
-    functionb(array);
-    console.log(array);
-};
+// let functiona = () => {
+//     let array = "hello";
+//     functionb(array);
+//     console.log(array);
+// };
 
-functiona();
+// functiona();
 
-// let a = 1;
-// a = { a: 1 };
-// a = "fasdfas";
-// a = () => {};
-// a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// console.log(typeof a);
+let a = 5;
+let b = a;
+b = 6;
+console.log(a);
+
+let man = { name: "John", age: 25 };
+let z = man;
+z.name = "karim";
+z.age = 30;
+console.log(man); // { name: 'karim', age: 30} / { name: 'John', age: 25}

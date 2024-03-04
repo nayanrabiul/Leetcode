@@ -1,4 +1,8 @@
-class MaxHeap {}
+class MaxHeap {
+    constructor() {
+        this.heap = [];
+    }
+}
 
 let heap = new MaxHeap();
 heap.push(5);
