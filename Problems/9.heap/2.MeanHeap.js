@@ -1,4 +1,4 @@
-class MaxHeap {
+class MinHeap {
     constructor() {
         this.heap = [];
     }
@@ -8,7 +8,7 @@ class MaxHeap {
         let i = arr.length - 1;
         while (i > 0) {
             let parent = Math.floor((i - 1) / 2);
-            if (arr[i] > arr[parent]) {
+            if (arr[i] < arr[parent]) {
                 let temp = arr[i];
                 arr[i] = arr[parent];
                 arr[parent] = temp;
@@ -21,7 +21,7 @@ class MaxHeap {
     pop() {
         let arr = this.heap;
         if (arr.length <= 1) return arr.pop();
-        let max = arr[0];
+        let min = arr[0];
         arr[0] = arr[arr.length - 1];
         arr.pop();
         let i = 0;
@@ -30,8 +30,8 @@ class MaxHeap {
             let child2 = (i + 1) * 2 + 1;
             child -= 1;
             child2 -= 1;
-            if (arr[i] < arr[child] || arr[i] < arr[child2]) {
-                if (!arr[child2] || arr[child] > arr[child2]) {
+            if (arr[i] > arr[child] || arr[i] > arr[child2]) {
+                if (!arr[child2] || arr[child] < arr[child2]) {
                     let temp = arr[child];
                     arr[child] = arr[i];
                     arr[i] = temp;
@@ -46,7 +46,7 @@ class MaxHeap {
                 break;
             }
         }
-        return max;
+        return min;
     }
 }
 let heap = new MaxHeap();
