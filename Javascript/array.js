@@ -1,11 +1,10 @@
 // Array Creation
 let arr = [1, 2, 3, 4, 5];
-let arr2 = new Array(1, 2, 3, 4, 5);
-let arr3 = new Array(10).fill(0);
+
 Array.isArray(arr); // return true or false
 
 // Accessing Elements
-let length = arr.length;
+let leng = arr.length;
 let first = arr[0];
 
 // Looping
@@ -30,7 +29,7 @@ let sum = arr2.reduce((accumulator, value) => accumulator + value, 0); // return
 
 // Adding & Removing Elements
 arr.push(6); // add to end
-arr.pop(); // remove from end
+let e = arr.pop(); // remove from end
 arr.unshift(0); // add to beginning
 arr.shift(); // remove from beginning
 
@@ -40,7 +39,6 @@ arr.splice(0, 2); // modifies original
 
 // Finding Elements
 let found = arr.find((value) => value >= 2); // return first element
-let has = arr2.contains(2); // return true or false
 
 // Sorting
 arr.sort((a, b) => a - b); // ascending

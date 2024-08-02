@@ -47,3 +47,23 @@ for (let key in myObject) {
     console.log(key);
     console.log(myObject[key]);
 }
+
+//set
+let set = new Set(arr);
+set.add(6);
+set.delete(6);
+set.has(6); //return boolean if set has 6
+set.size; //return size of set
+set.clear(); //clear set
+
+//map
+
+let map = new Map();
+
+map.set("5", "fasdfasd");
+map.get("5"); //return fasdfasd
+let hasInmap = map.has("5"); // true / false
+
+for (let [key, val] of map) {
+    console.log(key, val);
+}
